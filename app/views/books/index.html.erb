@@ -1,4 +1,4 @@
-<h2>Book Detail</h2>
+<h2>Books</h2>
 <table>
   <thead>
     <tr>
@@ -8,10 +8,15 @@
     </tr>
   </thead>
   <tbody>
+    <div class="user-image">
+    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+    <h4 class="user-name">name <%= @user.name %></h4>
     <% @books.each do |book| %>
     <tr>
       <td><%= book.title %></td>
       <td><%= book.body %></td>
     </tr>
     <% end %>
+    <%= link_to "Edit", edit_book_path(@book.id) %>
+    <%= link_to "Back", books_path %>
   </tbody>
