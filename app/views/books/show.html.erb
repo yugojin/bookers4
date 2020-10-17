@@ -4,20 +4,17 @@
     <tr>
       <th>Title</th>
       <th>Opinion</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <div class="user-image">
     <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-    <h4 class="user-name">name <%= @user.name %></h4>
     <% @books.each do |book| %>
     <tr>
       <td><%= book.title %></td>
       <td><%= book.body %></td>
-      
     </tr>
-    <% end %>
     <%= link_to "Edit", edit_book_path %>
     <%= link_to "Back", books_path %>
+    <% end %>
   </tbody>
