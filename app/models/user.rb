@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+  validates :introduction, length: { maximum: 50 }
 end
