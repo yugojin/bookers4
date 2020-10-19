@@ -24,13 +24,15 @@ class UsersController < ApplicationController
   end
 
   def index
+   @book = Book.new
+   @users = User.all
    @user = User.find(params[:id])
   end
 
   def update
    @user = User.find(params[:id])
    if @user.update(user_params)
-     redirect_to user_path(@user)
+     redirect_to homes_index_path(@user)
    else
      render :edit
    end
