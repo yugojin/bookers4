@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
    @book = Book.new(book_params)
    @book.save
-   redirect_to books_path
+   redirect_to book_path
   end
 
   def edit
@@ -29,12 +29,12 @@ class UsersController < ApplicationController
   def update
    @user = User.find(params[:id])
    if @user.update(user_params)
-     redirect_to homes_index_path(@user)
+     redirect_to user_path()
    else
      render :edit
    end
   end
-
+  
   private
   def user_params
    params.require(:user).permit(:name, :introduction, :profile_image)
