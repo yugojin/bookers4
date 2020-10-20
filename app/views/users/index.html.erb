@@ -1,6 +1,7 @@
+<div class="col-xs-3">
 <h2>User info</h2>
  <div class="user-image">
-    <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+    <%= attachment_image_tag current_user, :profile_image, size: "100x100", fallback: "no_image.jpg"%>
   </div>
 <h4 class="user-name">name <%= current_user.name %></h4>
 <h4 class="user-introduction">introduction <%= current_user.introduction %></h4>
@@ -16,12 +17,27 @@
   <%= f.text_area :body %><br>
   <%= f.submit 'Create Book', class: "btn btn-primary" %>
 <% end %>
+</div>
 
-<h2>Users</h2>
-<% @users.each do |user| %>
-<h4>image</h4>
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-<h4>name</h4>
-<%= user.name %>
-<%= link_to "show", user_path(@user.id) %>
-<% end %>
+<div class="col-xs-9">
+  <h2>Users</h2>
+  <table class="table">
+   <thead>
+    <tr>
+     <th>image</th>
+     <th>name</th>
+     <th colspan="3"></th>
+    </tr>
+   </thead>
+   <tbody>
+
+   <% @users.each do |user| %>
+    <tr>
+     <td><%= attachment_image_tag @user, :profile_image, size: "100x100", fallback: "no_image.jpg"%></td>
+     <td><%= user.name %></td>
+     <td><%= link_to "show", user_path(user.id) %></td>
+    </tr>
+   <% end %>
+   </tbody>
+  </table>
+</div>

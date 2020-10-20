@@ -1,8 +1,11 @@
 class HomesController < ApplicationController
-  before_action :authenticate_user!,
-  def index
+  before_action :authenticate_user!, except:[:top]
+  def top
    @book = Book.new
    @books = Book.all
+  end
+
+  def about
   end
 
   def create

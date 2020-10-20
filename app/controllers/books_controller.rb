@@ -1,8 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except:[:top]
-  def top
-  end
-
+  before_action :authenticate_user!
   def new
     @book = Book.new
   end
@@ -17,10 +14,11 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
+    @user = current_user
   end
 
   def show
-    @books = Book.all
+    @books = @user.books
     @book = Book.new
     @user = User.find(params[:id])
   end
