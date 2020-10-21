@@ -1,5 +1,12 @@
 <h2>User info</h2>
   <%= form_with model: @user, local:true do |f| %>
+  <% if @user.errors.any? %>
+   <ul>
+   <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %>error</li>
+  <% end %>
+   </ul>
+<% end %>
   <h5>Name</h5>
   <%= f.text_field :name %>
   <h5>Image</h5>
