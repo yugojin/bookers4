@@ -1,6 +1,6 @@
 <div class="body">
   <div class="container">
-
+   <div class="row">
 <% if flash[:notice] %>
  <p><%= flash[:notice] %></p>
 <% end %>
@@ -38,13 +38,13 @@
 </div>
 
 <div class="col-xs-9">
- <h2>Book Detail</h2>
+ <h2>Book detail</h2>
  <table class="table">
      <tbody>
          <tr>
-            <td><%= link_to attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.jpg"),user_path %>
+            <td><%= link_to attachment_image_tag(@user, :profile_image, size: "100x100", fallback: "no_image.jpg"), @user %>
             </br>
-            <%= link_to @user.name, user_path %></td>
+            <%= link_to @user.name, @user %></td>
             <td><%= link_to @book.title %></td>
             <td><%= @book.body %></td>
             <td><% if @user == current_user %>
@@ -58,6 +58,7 @@
          </tr>
      </tbody>
  </table>
+ </div>
 </div>
 </div>
 </div>
