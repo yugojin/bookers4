@@ -69,6 +69,10 @@
               <%= book.favorites.count %>
              <% end %>
           <% end %>
+          <td class="comment-list bt style-2" id="comments">
+              <div class="float-wrapper">
+              <i class="comment-count">コメント数：<%= book.book_comment.count %></i>
+          </td>
      </td>
     </tr>
    <% end %>
