@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   get 'home/about' => 'homes#about'
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

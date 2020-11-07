@@ -7,7 +7,14 @@ class User < ApplicationRecord
   has_many :book_comment, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :profile_image
-  
+
+  after_create :send_welcome_mail
+
+  def send_welcome_mail
+    UserMailer.user_welcome_mail(self).deliver
+  end
+
+
   include JpPrefecture
   jp_prefecture :prefecture_code
 
