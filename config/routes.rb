@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
   get 'home/about' => 'homes#about'
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

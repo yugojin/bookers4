@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :book_comment, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
   attachment :profile_image
 
   after_create :send_welcome_mail
