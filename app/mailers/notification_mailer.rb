@@ -1,9 +1,4 @@
-class NotificationMailer < ApplicationMailer
-  default from: 'no-replay@gmail.com'
-
-  def complete_mail(user)
+def send_signup_email(user)
     @user = user
-    @url = "http://localhost:3000/users/#{@user.id}"
-    mail(subject: "COMPLETE join your address" ,to: @user.email)
-  end
+    mail to: @user.email, subject: "会員登録が完了しました。"
 end

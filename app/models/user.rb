@@ -10,11 +10,10 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   attachment :profile_image
 
-  after_create :send_welcome_mail
-
-  def send_welcome_mail
-    UserMailer.user_welcome_mail(self).deliver
-  end
+  #after_create :send_welcome_mail
+  #def send_welcome_mail
+    #UserNoticeMailer.send_signup_email(self).deliver
+  #end
 
 
   include JpPrefecture

@@ -1,11 +1,8 @@
 class UserMailer < ApplicationMailer
-  def user_welcome_mail(user)
+def send_signup_email(user)
     @user = user
-	　mail(to: @user.email, subject: 'Welcome to Our Application!')
-	　default to: -> { User.pluck(:email) }
-  　mail(subject: "everyday Bookers!yay!")
-  end
-
+    mail to: @user.email, subject: "会員登録が完了しました。"
+end
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
